@@ -1,0 +1,23 @@
+{% extends 'core/base.html' %}
+
+{% block title %}ID Card{% endblock title %}
+
+{% block content %}
+<div class="container pt-5 mr-5 text-center">
+    <div class="card bg-dark text-white" style="width:400px; margin-left:250px;" >
+        
+    <img class="rounded-circle mx-auto pt-3" width="304" height="236" src= "{{ image.url }}"/>
+        <div class="card-body">
+            <h2 class="card-title">Student Name: {{ first_name }} {{ last_name }}</h2>
+            <p class="card-text">Phone Number: {{ phone }}</p>
+            <p class="card-text">College Name: {{ college }}</p>
+            <p class="card-text">Address {{ Address }}</p>
+            <p class="card-text">Division: {{ division }}</p>
+            <p class="card-text">Date Of Birth: {{ date }}</p>
+            
+        </div>
+        
+    </div>
+</div>
+{% endblock content %}
+

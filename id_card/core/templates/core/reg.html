@@ -1,0 +1,48 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Regestration{% endblock title %}
+
+{% block content %}
+    <form method="post", enctype="multipart/form-data" class="container p-3 my-3 bg-dark text-white" style="width:50%;">
+    {% csrf_token %}
+        <div class="form-group">
+            <label for="">First Name</label>
+            <input class="form-control" type="text" id="fname" name="fname" placeholder="First Nmae", required>
+            <br>
+            <label for="">Last Name</label>
+            <input class="form-control" type="text" id="lname" name="lname" placeholder="Last Name", required>
+            <br>
+            <label for="">Phone</label>
+            <input class="form-control" type="tel" id="phone" name="phone" placeholder="123454678", pattern="[0-9]{3}[0-9]{3}[0-9]{3}",required>
+            <br>
+            <label for="">Address</label>
+            <input class="form-control" type="text" id="address" name="address" placeholder="address", required>
+            <br>
+            <label for="">Date of Birth</label>
+            <input class="form-control" type="date" id="date" name="date" placeholder="Date Of Birth", required>
+        </div>    
+            <label for="">Division</label>
+            <select id="division" name="division" class="custom-select mb-3">
+                <option value="Technology">Technology</option>
+                <option value="Mangement">Mangement</option>
+                <option value="Law">Law</option>
+                <option value="Accounting">Accounting</option>
+            </select>
+            <br>
+            <label for="">college</label>
+            
+            <select id="col" name="col" class="custom-select mb-3">
+                {% for i in college %}            
+                <option value="{{ i.id }}">{{ i.name }}</option>
+                {% endfor %}
+            </select>
+            
+            <br>
+            <label for="">Uploade Image</label>
+            <input type="file" name="image">
+            <br>
+            <button type="submit" class="btn btn-primary" style="margin-top:10px;">Create ID</button>
+        
+    </form>
+{% endblock content %}
+
